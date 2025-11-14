@@ -1,0 +1,34 @@
+<meta name='viewport' content='width=device-width, initial-scale=1'/><!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <style>
+    #viewer {
+      width: 100vw;
+      height: 100vh;
+    }
+  </style>
+</head>
+<body>
+  <div id="viewer"></div>
+
+  <!-- Подключаем PhotoSphereViewer через CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/photo-sphere-viewer@5/dist/photo-sphere-viewer.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@photo-sphere-viewer/cubemap-adapter@5/dist/index.js"></script>
+
+  <script>
+    const viewer = new PhotoSphereViewer.Viewer({
+      container: document.getElementById('viewer'),
+      adapter: PhotoSphereViewer.CubemapAdapter,
+      panorama: {
+        left: 'panorama_3.png',
+        front: 'panorama_0.png',
+        right: 'panorama_1.png',
+        back: 'panorama_2.png',
+        top: 'panorama_4.png',
+        bottom: 'panorama_5.png',
+      },
+    });
+  </script>
+</body>
+</html>
