@@ -1,45 +1,85 @@
-<!DOCTYPE HTML>
+<meta name='viewport' content='width=device-width, initial-scale=1'/><!DOCTYPE HTML>
 <html>
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cube map</title>
+    <title>Multiple Cube maps</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css"/>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
     <style>
-    #panorama {
-        width: 600px;
-        height: 400px;
+    .panorama-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+        padding: 20px;
+    }
+    .panorama {
+        width: 400px;
+        height: 300px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
     }
     </style>
 </head>
 <body>
 
-<div id="panorama"></div>
-<div id="panorama1"></div>
+<div class="panorama-container">
+    <!-- Панорама 1 -->
+    <div id="panorama1" class="panorama"></div>
+    
+    <!-- Панорама 2 -->
+    <div id="panorama2" class="panorama"></div>
+    
+    <!-- Панорама 3 -->
+    <div id="panorama3" class="panorama"></div>
+    
+    <!-- Панорама 4 -->
+    <div id="panorama4" class="panorama"></div>
+    
+    <!-- Панорама 5 -->
+    <div id="panorama5" class="panorama"></div>
+    
+    <!-- Панорама 6 -->
+    <div id="panorama6" class="panorama"></div>
+    
+    <!-- Панорама 7 -->
+    <div id="panorama7" class="panorama"></div>
+    
+    <!-- Панорама 8 -->
+    <div id="panorama8" class="panorama"></div>
+    
+    <!-- Панорама 9 -->
+    <div id="panorama9" class="panorama"></div>
+</div>
+
 <script>
-pannellum.viewer('panorama', {
-    "type": "cubemap",
-    "cubeMap": [
-        "panorama_0.png",
-        "panorama_1.png",
-        "panorama_2.png",
-        "panorama_3.png",
-        "panorama_4.png",
-        "panorama_5.png"
-    ]
-});
-pannellum.viewer('panorama1', {
-    "type": "cubemap",
-    "cubeMap": [
-        "panorama_0.png",
-        "panorama_1.png",
-        "panorama_2.png",
-        "panorama_3.png",
-        "panorama_4.png",
-        "panorama_5.png"
-    ]
-});
+// Функция для создания панорамы
+function createPanorama(elementId, imagePrefix) {
+    pannellum.viewer(elementId, {
+        "type": "cubemap",
+        "cubeMap": [
+            imagePrefix + "_0.png",
+            imagePrefix + "_1.png",
+            imagePrefix + "_2.png",
+            imagePrefix + "_3.png",
+            imagePrefix + "_4.png",
+            imagePrefix + "_5.png"
+        ],
+        "autoLoad": true
+    });
+}
+
+// Создаем 9 панорам
+createPanorama('panorama1', 'panorama');
+createPanorama('panorama2', 'panorama2');
+createPanorama('panorama3', 'panorama3');
+createPanorama('panorama4', 'panorama4');
+createPanorama('panorama5', 'panorama5');
+createPanorama('panorama6', 'panorama6');
+createPanorama('panorama7', 'panorama7');
+createPanorama('panorama8', 'panorama8');
+createPanorama('panorama9', 'panorama9');
 </script>
 
 </body>
